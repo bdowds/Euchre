@@ -17,6 +17,9 @@ namespace Euchre
                 Console.WriteLine($"Card: {card.name}");
                 count++;
             }
+
+            Console.WriteLine($"\nFirstCard: {dealer.Deck[0].name}");
+
             Console.ReadLine();
         }
     }

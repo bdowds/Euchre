@@ -8,25 +8,36 @@ namespace Euchre
     class Dealer
     {
         private const int DECK_SIZE = 24;
+        private int currentCard;
 
-        public Card[] Deck = new Card[DECK_SIZE];
+        public List<Card> Deck = new List<Card>();
 
         public Dealer()
         {
             NewDeck();
+            currentCard = 0;
         }
 
 
         //public Card Deal()
         //{
-
+        //    var topCard = Deck[currentCard];
+        //    currentCard++;
+        //    return topCard;
         //}
 
         public void Shuffle()
         {
             Random rnd = new Random();
-            Deck = Deck.OrderBy(x => rnd.Next()).ToArray();
+            Deck = Deck.OrderBy(x => rnd.Next()).ToList();
         }
+
+        //private bool isEmpty()
+        //{
+        //    if (currentCard >= DECK_SIZE)
+        //        return true;
+        //    return false;
+        //}
 
 
         private static string NameCard(Card card)
@@ -53,6 +64,9 @@ namespace Euchre
                 case 5:
                     value = "King";
                     break;
+                default:
+                    value = "Not_Implemented";
+                    break;
             }
             return $"{value} of {card.suit}s";
         }
@@ -61,7 +75,6 @@ namespace Euchre
         private void NewDeck()
         {
             const int CARDS_PER_SUIT = DECK_SIZE / 4;
-            var count = 0;
 
             var numberOfSuits = Enum.GetValues(typeof(Card.Suit)).Length;
 
@@ -75,8 +88,7 @@ namespace Euchre
                         suit = (Card.Suit)i
                     };
                     card.name = NameCard(card);
-                    Deck[count] = card;
-                    count++;
+                    Deck.Add(card);
                 }
             }
         }
