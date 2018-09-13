@@ -7,7 +7,6 @@ namespace Euchre
         static void Main(string[] args)
         {
             var dealer = new Dealer();
-            dealer.NewDeck();
             dealer.Shuffle();
 
             //var firstCard = dealer.Deck[0];
@@ -15,7 +14,7 @@ namespace Euchre
             var count = 1;
             foreach(var card in dealer.Deck)
             {
-                Console.WriteLine($"Card: {card.number} {card.suit}---{count}");
+                Console.WriteLine($"Card: {card.name}");
                 count++;
             }
             Console.ReadLine();

@@ -9,6 +9,7 @@ namespace Euchre
         public enum Suit { Spade, Club, Heart, Diamond };
 
         public int number { get; set; }
+        public string name { get; set; }
         public Suit suit { get; set; }
     }
 }
