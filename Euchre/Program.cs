@@ -6,7 +6,11 @@ namespace Euchre
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var dealer = new Dealer();
+            dealer.NewDeck();
+
+            Console.WriteLine(dealer.Deck[0].suit);
+            Console.ReadLine();
         }
     }
 }
