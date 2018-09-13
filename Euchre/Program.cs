@@ -8,8 +8,16 @@ namespace Euchre
         {
             var dealer = new Dealer();
             dealer.NewDeck();
+            dealer.Shuffle();
 
-            Console.WriteLine(dealer.Deck[0].suit);
+            //var firstCard = dealer.Deck[0];
+            //Console.WriteLine($"Card: {firstCard.number} {firstCard.suit}");
+            var count = 1;
+            foreach(var card in dealer.Deck)
+            {
+                Console.WriteLine($"Card: {card.number} {card.suit}---{count}");
+                count++;
+            }
             Console.ReadLine();
         }
     }

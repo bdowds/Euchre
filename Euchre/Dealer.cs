@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Euchre
@@ -34,7 +35,8 @@ namespace Euchre
 
         public void Shuffle()
         {
-
+            Random rnd = new Random();
+            Deck = Deck.OrderBy(x => rnd.Next()).ToArray();
         }
     }
 }
