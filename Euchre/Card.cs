@@ -6,7 +6,7 @@ namespace Euchre
 {
     class Card
     {
-        public enum Suit { Spade, Club, Heart, Diamond };
+        public enum Suit { Spade, Heart, Diamond, Club };
 
         public int number { get; set; }
         public string name { get; set; }
