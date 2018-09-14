@@ -7,6 +7,8 @@ namespace Euchre
         static void Main(string[] args)
         {
             var dealer = new Dealer();
+            dealer.Shuffle();
+
 
             ////Tests Dealer without Deal Method
             //var count = 1;

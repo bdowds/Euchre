@@ -13,7 +13,7 @@ namespace Euchre
 
         public Dealer()
         {
-            Shuffle();
+            NewDeck();
         }
 
 
