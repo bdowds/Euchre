@@ -7,18 +7,26 @@ namespace Euchre
         static void Main(string[] args)
         {
             var dealer = new Dealer();
-            dealer.Shuffle();
 
-            //var firstCard = dealer.Deck[0];
-            //Console.WriteLine($"Card: {firstCard.number} {firstCard.suit}");
-            var count = 1;
-            foreach(var card in dealer.Deck)
+            ////Tests Dealer without Deal Method
+            //var count = 1;
+            //foreach (var card in dealer.Deck)
+            //{
+            //    Console.WriteLine($"Card: {card.name}-------{count}");
+            //    count++;
+            //}
+            //
+            //Console.WriteLine($"\nFirstCard: {dealer.Deck[0].name}");
+
+            //Tests Dealer with Deal Method
+            for (int i = 0; i < 50; i++)
             {
-                Console.WriteLine($"Card: {card.name}");
-                count++;
+                var nextCard = dealer.Deal();
+                if (nextCard != null)
+                    Console.WriteLine($"Card: {nextCard.name}-------{i+1}");
+                else
+                    Console.WriteLine("No More Cards");
             }
-
-            Console.WriteLine($"\nFirstCard: {dealer.Deck[0].name}");
 
             Console.ReadLine();
         }

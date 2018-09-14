@@ -17,13 +17,16 @@ namespace Euchre
         }
 
 
-        //public Card Deal()
-        //{
-        //    if(!isEmpty())
-        //    {
-
-        //    }
-        //}
+        public Card Deal()
+        {
+            if (!isEmpty())
+            {
+                var topCard = Deck[0];
+                Deck.RemoveAt(0);
+                return topCard;
+            }
+            return null;
+        }
 
         public void Shuffle()
         {
