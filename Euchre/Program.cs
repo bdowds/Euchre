@@ -19,7 +19,7 @@ namespace Euchre
             //Console.WriteLine($"\nFirstCard: {dealer.Deck[0].name}");
 
             //Tests Dealer with Deal Method
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 53; i++)
             {
                 var nextCard = dealer.Deal();
                 if (nextCard != null)

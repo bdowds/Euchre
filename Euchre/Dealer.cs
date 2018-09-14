@@ -7,7 +7,7 @@ namespace Euchre
 {
     class Dealer
     {
-        private const int DECK_SIZE = 24;
+        private const int DECK_SIZE = 52;
 
         public List<Card> Deck = new List<Card>();
 
@@ -53,18 +53,39 @@ namespace Euchre
                     value = "Ace";
                     break;
                 case 1:
-                    value = "Nine";
+                    value = "Two";
                     break;
                 case 2:
-                    value = "Ten";
+                    value = "Three";
                     break;
                 case 3:
-                    value = "Jack";
+                    value = "Four";
                     break;
                 case 4:
-                    value = "Queen";
+                    value = "Five";
                     break;
                 case 5:
+                    value = "Six";
+                    break;
+                case 6:
+                    value = "Seven";
+                    break;
+                case 7:
+                    value = "Eight";
+                    break;
+                case 8:
+                    value = "Nine";
+                    break;
+                case 9:
+                    value = "Ten";
+                    break;
+                case 10:
+                    value = "Jack";
+                    break;
+                case 11:
+                    value = "Queen";
+                    break;
+                case 12:
                     value = "King";
                     break;
                 default:
