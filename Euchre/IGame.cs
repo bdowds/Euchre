@@ -6,6 +6,6 @@ namespace Euchre
 {
     interface IGame
     {
-        List<Card> Setup();
+        void Setup();    
     }
 }

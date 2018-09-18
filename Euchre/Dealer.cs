@@ -9,8 +9,8 @@ namespace Euchre
     {
         private const int DECK_SIZE = 52;
 
-        public List<Card> Deck = new List<Card>();
-        public List<Card> Pile = new List<Card>();
+        public static List<Card> Deck = new List<Card>();
+        private static List<Card> Pile = new List<Card>();
 
         public Dealer()
         {
@@ -23,7 +23,7 @@ namespace Euchre
             {
                 var topCard = Deck[0];
                 Deck.RemoveAt(0);
-                Discard(topCard);
+                ToPile(topCard);
                 return topCard;
             }
             return null;
@@ -48,7 +48,7 @@ namespace Euchre
             return false;
         }
 
-        private void Discard(Card card)
+        private void ToPile(Card card)
         {
             Pile.Add(card);
         }
