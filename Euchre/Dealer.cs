@@ -10,12 +10,12 @@ namespace Euchre
         private const int DECK_SIZE = 52;
 
         public List<Card> Deck = new List<Card>();
+        public List<Card> Pile = new List<Card>();
 
         public Dealer()
         {
             NewDeck();
         }
-
 
         public Card Deal()
         {
@@ -23,6 +23,7 @@ namespace Euchre
             {
                 var topCard = Deck[0];
                 Deck.RemoveAt(0);
+                Discard(topCard);
                 return topCard;
             }
             return null;
@@ -30,11 +31,16 @@ namespace Euchre
 
         public void Shuffle()
         {
-            NewDeck();
+            while(Pile.Count > 0)
+            {
+                Deck.Add(Pile[0]);
+                Pile.RemoveAt(0);
+            }
             Random rnd = new Random();
             Deck = Deck.OrderBy(x => rnd.Next()).ToList();
         }
 
+   
         private bool isEmpty()
         {
             if (Deck.Count <= 0)
@@ -42,6 +48,10 @@ namespace Euchre
             return false;
         }
 
+        private void Discard(Card card)
+        {
+            Pile.Add(card);
+        }
 
         private static string NameCard(Card card)
         {
