@@ -8,6 +8,7 @@ namespace Euchre
     class Dealer
     {
         private const int DECK_SIZE = 52;
+        private const int NUMBER_OF_SUITS = 4;
 
         public static List<Card> Deck = new List<Card>();
         private static List<Card> Pile = new List<Card>();
@@ -108,7 +109,7 @@ namespace Euchre
 
         private void NewDeck()
         {
-            const int CARDS_PER_SUIT = DECK_SIZE / 4;
+            const int CARDS_PER_SUIT = DECK_SIZE / NUMBER_OF_SUITS;
 
             var numberOfSuits = Enum.GetValues(typeof(Card.Suit)).Length;
             Deck = new List<Card>();
