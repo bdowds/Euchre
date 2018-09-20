@@ -11,7 +11,7 @@ namespace Euchre
         private string userName;
         private Dealer dealer;
 
-        public List<Player> players { get; set; }
+        public List<Player> players = new List<Player>();
 
         public EuchreGame()
         {
@@ -29,7 +29,7 @@ namespace Euchre
             var isAI = false;
             for (int i = 0; i < NUM_OF_PLAYERS; i++)
             {
-                var player = new Player() { Number = i, IsComputer = isAI };
+                var player = new Player() { Number = i, IsComputer = isAI, Hand = new List<Card>()};
                 if(!isAI)
                 {
                     player.Name = userName;
@@ -60,6 +60,7 @@ namespace Euchre
                     i--;
                 }
             }
+            dealer.Shuffle();
         }
 
         private void SetTurn()
@@ -92,13 +93,15 @@ namespace Euchre
         //First Player to recieve a Jack is the starting dealer.
         private void StartTurn()
         {
-            while(true)
-            {
-                var count = 1;
+            var count = 1;
+            while (true)
+            {              
                 var card = dealer.Deal();
                 if (card.number == 10)
                 {
                     playersTurn = count % NUM_OF_PLAYERS;
+                    dealer.Shuffle();
+                    break;
                 }
                 count++;
             }
