@@ -7,7 +7,7 @@ namespace Euchre
         static void Main(string[] args)
         {
             var dealer = new Dealer();
-            var euchre = new EuchreGame(dealer);
+            var euchre = new EuchreGame(dealer, "UserName");
             euchre.Setup();
             //dealer.Shuffle();
 
