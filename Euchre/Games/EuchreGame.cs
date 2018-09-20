@@ -8,10 +8,12 @@ namespace Euchre.Games
     class EuchreGame : IGame
     {
         private const int NUM_OF_PLAYERS = 4;
+        private const int HAND_SIZE = 5;
         private int playersTurn = -1;
         private string userName;
         private Dealer dealer;
 
+        public Card Flipped { get; set; }
         public List<Player> players = new List<Player>();
 
         public EuchreGame()
@@ -33,7 +35,14 @@ namespace Euchre.Games
 
         private void DealHands()
         {
-            dealer
+            var count = playersTurn;
+            for(int i = 0; i < HAND_SIZE * NUM_OF_PLAYERS; i++)
+            {
+                players[count].Hand.Add(dealer.Deal());
+                count++;
+                count %= NUM_OF_PLAYERS;
+            }
+            Flipped = dealer.Deal();
         }
 
         private void BuildPlayers()

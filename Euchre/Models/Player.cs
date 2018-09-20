@@ -11,9 +11,5 @@ namespace Euchre.Models
         public string Name { get; set; }
         public bool IsComputer { get; set; }
 
-        public bool isTurn()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
