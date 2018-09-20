@@ -34,7 +34,7 @@ namespace Euchre
         }
 
 
-        private void BuildPlayers()
+        public void BuildPlayers()
         {
             var isAI = false;
             for (int i = 0; i < NUM_OF_PLAYERS; i++)
