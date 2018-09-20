@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Euchre.Games;
+using System;
 
 namespace Euchre
 {
