@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Euchre.Models
 {
-    class Card
+    public class Card
     {
         public enum Suit { Spade, Heart, Diamond, Club };
 

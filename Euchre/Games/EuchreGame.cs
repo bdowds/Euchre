@@ -23,6 +23,17 @@ namespace Euchre.Games
         public void Start()
         {
             Setup();
+            StartRound();
+        }
+
+        private void StartRound()
+        {
+            DealHands();
+        }
+
+        private void DealHands()
+        {
+            dealer
         }
 
         private void BuildPlayers()
