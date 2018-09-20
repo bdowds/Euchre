@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Euchre
 {
-    class Dealer
+    public class Dealer
     {
         private const int DECK_SIZE = 52;
         private const int NUMBER_OF_SUITS = 4;
