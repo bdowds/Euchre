@@ -13,31 +13,18 @@ namespace Euchre
 
         public List<Player> players { get; set; }
 
-        public EuchreGame(Dealer _dealer, string _userName)
+        public EuchreGame()
         {
-            dealer = _dealer;
-            userName = _userName;
-        }
-
-        public void Setup()
-        {
-            for (int i = 0; i < Dealer.Deck.Count; i++)
-            {
-                if (Dealer.Deck[i].number < 8 && Dealer.Deck[i].number != 0)
-                {
-                    Dealer.Deck.RemoveAt(i);
-                    i--;
-                }
-            }
+            dealer = new Dealer();
+            userName = AskUserName();
         }
 
         public void Start()
         {
-
+            Setup();
         }
 
-
-        public void BuildPlayers()
+        private void BuildPlayers()
         {
             var isAI = false;
             for (int i = 0; i < NUM_OF_PLAYERS; i++)
@@ -53,6 +40,25 @@ namespace Euchre
                 }
                 players.Add(player);
                 isAI = true;
+            }
+        }
+
+        private void Setup()
+        {
+            DeckSetup();
+            BuildPlayers();
+            SetTurn();
+        }
+
+        private void DeckSetup()
+        {
+            for (int i = 0; i < Dealer.Deck.Count; i++)
+            {
+                if (Dealer.Deck[i].number < 8 && Dealer.Deck[i].number != 0)
+                {
+                    Dealer.Deck.RemoveAt(i);
+                    i--;
+                }
             }
         }
 
@@ -74,6 +80,12 @@ namespace Euchre
                 return false;
             }
             return true;
+        }
+
+        private string AskUserName()
+        {
+            Console.WriteLine("What is Your Name?");
+            return Console.ReadLine();
         }
 
         //Deals Cards to each player. 

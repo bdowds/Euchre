@@ -6,8 +6,6 @@ namespace Euchre
 {
     interface IGame
     {
-        void Setup();
         void Start();
-        void BuildPlayers();
     }
 }
