@@ -17,5 +17,10 @@ namespace Euchre
                 }
             }
         }
+
+        public void Start()
+        {
+
+        }
     }
 }
