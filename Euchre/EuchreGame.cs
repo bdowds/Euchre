@@ -7,6 +7,7 @@ namespace Euchre
     class EuchreGame : IGame
     {
         private const int NUM_OF_PLAYERS = 4;
+        public int playersTurn = -1;
         private Dealer dealer;
 
         public List<Player> players { get; set; }
@@ -42,6 +43,42 @@ namespace Euchre
                 var player = new Player() { IsComputer = isAI };
                 players.Add(player);
                 isAI = true;
+            }
+        }
+
+        private void SetTurn()
+        {
+            if (!isGameStarted())
+            {
+                StartTurn();
+                return;
+            }
+            playersTurn++;
+            playersTurn %= NUM_OF_PLAYERS;
+        }
+
+        private bool isGameStarted()
+        {
+            if (playersTurn == -1)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        //Deals Cards to each player. 
+        //First Player to recieve a Jack is the starting dealer.
+        private void StartTurn()
+        {
+            while(true)
+            {
+                var count = 1;
+                var card = dealer.Deal();
+                if (card.number == 10)
+                {
+                    playersTurn = count % NUM_OF_PLAYERS;
+                }
+                count++;
             }
         }
     }
