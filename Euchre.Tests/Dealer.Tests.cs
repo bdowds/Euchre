@@ -1,6 +1,7 @@
 using System;
 using Xunit;
 using Euchre;
+using Euchre.Models;
 
 namespace Euchre.Tests
 {
