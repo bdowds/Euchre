@@ -7,14 +7,16 @@ namespace Euchre
     class EuchreGame : IGame
     {
         private const int NUM_OF_PLAYERS = 4;
-        public int playersTurn = -1;
+        private int playersTurn = -1;
+        private string userName;
         private Dealer dealer;
 
         public List<Player> players { get; set; }
 
-        public EuchreGame(Dealer _dealer)
+        public EuchreGame(Dealer _dealer, string _userName)
         {
             dealer = _dealer;
+            userName = _userName;
         }
 
         public void Setup()
@@ -40,7 +42,15 @@ namespace Euchre
             var isAI = false;
             for (int i = 0; i < NUM_OF_PLAYERS; i++)
             {
-                var player = new Player() { IsComputer = isAI };
+                var player = new Player() { Number = i, IsComputer = isAI };
+                if(!isAI)
+                {
+                    player.Name = userName;
+                }
+                else
+                {
+                    player.Name = $"COM {i}";
+                }
                 players.Add(player);
                 isAI = true;
             }
