@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Euchre.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Euchre
+namespace Euchre.Games
 {
     class EuchreGame : IGame
     {

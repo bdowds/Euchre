@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Euchre
+namespace Euchre.Models
 {
     public class Card
     {
